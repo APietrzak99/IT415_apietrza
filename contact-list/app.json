@@ -1,0 +1,21 @@
+{
+  "expo": {
+    "name": "Contact List",
+    "slug": "contact-list",
+    "scheme": "contactlist",
+    "sdkVersion": "39.0.0",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
+}
