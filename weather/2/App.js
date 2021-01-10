@@ -24,7 +24,7 @@ export default class App extends React.Component {
 
         <TextInput
           autoCorrect={false}
-          placeholder="Search any city"
+          placeholder="Type a city here..."
           placeholderTextColor="white"
           style={styles.textInput}
           clearButtonMode="always"
@@ -46,10 +46,10 @@ const styles = StyleSheet.create({
       Platform.OS === 'ios' ? 'AvenirNext-Regular' : 'Roboto',
   },
   largeText: {
-    fontSize: 44,
+    fontSize: 56,
   },
   smallText: {
-    fontSize: 18,
+    fontSize: 24,
   },
   textInput: {
     backgroundColor: '#666',

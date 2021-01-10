@@ -29,7 +29,7 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
-    this.handleUpdateLocation('San Francisco');
+    this.handleUpdateLocation('Detroit');
   }
 
   handleUpdateLocation = async city => {
@@ -109,13 +109,13 @@ export default class App extends React.Component {
                     <Text
                       style={[styles.largeText, styles.textStyle]}
                     >
-                      {`${Math.round(temperature)}°`}
+                      {`${Math.round(temperature*(9/5) + 32)}°`}
                     </Text>
                   </View>
                 )}
 
                 <SearchInput
-                  placeholder="Search any city"
+                  placeholder="Type a city here..."
                   onSubmit={this.handleUpdateLocation}
                 />
               </View>
@@ -153,9 +153,9 @@ const styles = StyleSheet.create({
     color: 'white',
   },
   largeText: {
-    fontSize: 44,
+    fontSize: 56,
   },
   smallText: {
-    fontSize: 18,
+    fontSize: 24,
   },
 });

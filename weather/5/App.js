@@ -16,7 +16,7 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      location: 'San Francisco',
+      location: 'Detroit',
     };
   }
 
@@ -51,7 +51,7 @@ export default class App extends React.Component {
             </Text>
 
             <SearchInput
-              placeholder="Search any city"
+              placeholder="Type a city here..."
               onSubmit={this.handleUpdateLocation}
             />
           </View>
@@ -87,9 +87,9 @@ const styles = StyleSheet.create({
     color: 'white',
   },
   largeText: {
-    fontSize: 44,
+    fontSize: 56,
   },
   smallText: {
-    fontSize: 18,
+    fontSize: 24,
   },
 });

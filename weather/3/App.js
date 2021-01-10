@@ -23,7 +23,7 @@ export default class App extends React.Component {
         </Text>
         <Text style={[styles.largeText, styles.textStyle]}>24°</Text>
 
-        <SearchInput placeholder="Search any city" />
+        <SearchInput placeholder="Type a city here..." />
       </KeyboardAvoidingView>
     );
   }
@@ -41,9 +41,9 @@ const styles = StyleSheet.create({
       Platform.OS === 'ios' ? 'AvenirNext-Regular' : 'Roboto',
   },
   largeText: {
-    fontSize: 44,
+    fontSize: 56,
   },
   smallText: {
-    fontSize: 18,
+    fontSize: 24,
   },
 });

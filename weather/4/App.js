@@ -35,7 +35,7 @@ export default class App extends React.Component {
               24°
             </Text>
 
-            <SearchInput placeholder="Search any city" />
+            <SearchInput placeholder="Type a city here..." />
           </View>
         </ImageBackground>
       </KeyboardAvoidingView>
@@ -69,9 +69,9 @@ const styles = StyleSheet.create({
     color: 'white',
   },
   largeText: {
-    fontSize: 44,
+    fontSize: 56,
   },
   smallText: {
-    fontSize: 18,
+    fontSize: 24,
   },
 });
