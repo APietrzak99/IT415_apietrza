@@ -39,29 +39,6 @@ export default class App extends React.Component {
     ],
   };
 
-  componentDidMount() {
-    const TIME_INTERVAL = 1000;
-
-    this.intervalId = setInterval(() => {
-      const { items } = this.state;
-
-      this.setState({
-        items: items.map(item => {
-          const { elapsed, isRunning } = item;
-
-          return {
-            ...item,
-            elapsed: isRunning ? elapsed + TIME_INTERVAL : elapsed,
-          };
-        }),
-      });
-    }, TIME_INTERVAL);
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.intervalId);
-  }
-
   handleCreateFormSubmit = item => {
     const { items } = this.state;
 
@@ -120,7 +97,7 @@ export default class App extends React.Component {
   render() {
     const { items } = this.state;
     return (
-      <ImageBackground source={require('./assets/grocery.jpg')} style={styles.image}>
+      <ImageBackground source={require('./grocery.jpg')} style={styles.image}>
       <KeyboardAwareScrollView
         extraScrollHeight={100}
         enableOnAndroid={true}
