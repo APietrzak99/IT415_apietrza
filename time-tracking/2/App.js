@@ -1,5 +1,6 @@
 import React from 'react';
-import uuidv4 from 'uuid/v4';
+import 'react-native-get-random-values';
+import { v4 as uuidv4 } from "uuid";
 
 import { StyleSheet, View, ScrollView, Text } from 'react-native';
 
