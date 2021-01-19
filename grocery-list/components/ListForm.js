@@ -8,7 +8,7 @@ export default class ListForm extends React.Component {
   static propTypes = {
     id: PropTypes.string,
     item: PropTypes.string,
-    qty: PropTypes.number,
+    qty: PropTypes.string,
     onFormSubmit: PropTypes.func.isRequired,
     onFormClose: PropTypes.func.isRequired,
   };

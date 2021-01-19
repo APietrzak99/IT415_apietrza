@@ -8,7 +8,7 @@ export default class Item extends Component {
   static propTypes = {
     id: PropTypes.string.isRequired,
     item: PropTypes.string.isRequired,
-    qty: PropTypes.number.isRequired,
+    qty: PropTypes.string.isRequired,
     isRunning: PropTypes.bool.isRequired,
     onEditPress: PropTypes.func.isRequired,
     onRemovePress: PropTypes.func.isRequired,
@@ -61,7 +61,7 @@ export default class Item extends Component {
 
     return (
       <View style={styles.ItemContainer}>
-        <Text>Qty: {qty}</Text>
+        <Text>Qty: {qty.toString()}</Text>
         <Text style={styles.ListItem}>{item}</Text>
         <View style={styles.buttonGroup}>
           <ListButton

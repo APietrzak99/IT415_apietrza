@@ -20,19 +20,19 @@ export default class App extends React.Component {
     items: [
       {
         item: 'Milk',
-        qty: "2",
+        qty: 2,
         id: uuidv4(),
         isRunning: false,
       },
       {
         item: 'Bananas',
-        qty: '1',
+        qty: 1,
         id: uuidv4(),
         isRunning: true,
       },
       {
         item: 'Bread',
-        qty: '1',
+        qty: 1,
         id: uuidv4(),
         isRunning: true,
       },
@@ -118,7 +118,7 @@ export default class App extends React.Component {
                   key={id}
                   id={id}
                   item={item}
-                  qty={qty}
+                  qty={qty.toString()}
                   isRunning={isRunning}
                   onFormSubmit={this.handleFormSubmit}
                   onRemovePress={this.handleRemovePress}
