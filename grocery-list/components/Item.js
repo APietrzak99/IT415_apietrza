@@ -8,7 +8,7 @@ export default class Item extends Component {
   static propTypes = {
     id: PropTypes.string.isRequired,
     item: PropTypes.string.isRequired,
-    qty: PropTypes.string.isRequired,
+    qty: PropTypes.number.isRequired,
     isRunning: PropTypes.bool.isRequired,
     onEditPress: PropTypes.func.isRequired,
     onRemovePress: PropTypes.func.isRequired,
@@ -57,7 +57,7 @@ export default class Item extends Component {
   }  
 
   render() {
-    const {item, qty, onEditPress} = this.props;
+    const { item, qty, onEditPress } = this.props;
 
     return (
       <View style={styles.ItemContainer}>

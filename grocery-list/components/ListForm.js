@@ -8,7 +8,7 @@ export default class ListForm extends React.Component {
   static propTypes = {
     id: PropTypes.string,
     item: PropTypes.string,
-    qty: PropTypes.string,
+    qty: PropTypes.number,
     onFormSubmit: PropTypes.func.isRequired,
     onFormClose: PropTypes.func.isRequired,
   };
@@ -35,7 +35,14 @@ export default class ListForm extends React.Component {
   };
 
   handleQtyChange = qty => {
+    qty = parseInt(qty)
+    if (isNaN(qty))
+    {
+      qty = 1;
+    }
+
     this.setState({ qty });
+    
   };
 
   handleSubmit = () => {
@@ -72,6 +79,7 @@ export default class ListForm extends React.Component {
           <Text style={styles.textInputItem}>Quantity</Text>
           <View style={styles.textInputContainer}>
             <TextInput
+              keyboardType = "number-pad"
               style={styles.textInput}
               underlineColorAndroid="transparent"
               onChangeText={this.handleQtyChange}

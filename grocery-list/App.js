@@ -53,11 +53,11 @@ export default class App extends React.Component {
     this.setState({
       items: items.map(item => {
         if (item.id === attrs.id) {
-          const{ item, qty } = attrs;
+          const{ fooditem, qty } = attrs;
 
           return {
             ...item,
-            item,
+            fooditem,
             qty,
           };
         }
