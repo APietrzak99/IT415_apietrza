@@ -4,6 +4,7 @@ import React from 'react';
 import Item from './Item';
 import ListForm from './ListForm';
 
+
 export default class EditableFoods extends React.Component {
   static propTypes = {
     id: PropTypes.string.isRequired,

@@ -56,7 +56,9 @@ export default class Item extends Component {
       />
     );
   }  
-
+// I couldn't figure out how to send the correct data from imagesetup.js to here so it could display the images for each product correctly. I tried to pass data from App.js 
+// so I could use that as a means of identifying which image to use in each container, but that never ended up panning out.  I've left it as placeholder because I at least can turn
+// in a mostly functional app, minus the pictures. Some of my experiments to get this working led to a severely broken app, so at the very least the app works now.
   render() {
     const { item, qty, onEditPress } = this.props;
     return (

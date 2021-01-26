@@ -11,42 +11,42 @@ import {
 
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import EditableFoods from './components/EditableFoods';
-export let products;
+
 export default class App extends React.Component {
   state = {
     items: [
       {
         item: 'Milk',
         qty: 2,
-        picture:'./assets/products/Milk.jpg',
+        picture: require('./assets/products/milk.jpg'),
         id: uuidv4(),
         isPurchased: false,
       },
       {
         item: 'Doritos',
         qty: 1,
-        picture:'./assets/products/doritos.jpg',
+        picture: require('./assets/products/doritos.jpg'),
         id: uuidv4(),
         isPurchased: true,
       },
       {
         item: 'Bread',
         qty: 2,
-        picture:'./assets/products/bread.jpg',
+        picture: require('./assets/products/bread.jpg'),
         id: uuidv4(),
         isPurchased: true,
       },
       {
         item: 'Frosted Flakes',
         qty: 1,
-        picture:'./assets/products/cereal.png',
+        picture: require('./assets/products/cereal.png'),
         id: uuidv4(),
         isPurchased: true,
       },
       {
         item: 'Salami',
         qty: 12,
-        picture:'./assets/products/Salami.jpg',
+        picture: require('./assets/products/salami.jpg'),
         id: uuidv4(),
         isPurchased: false,
       },
@@ -116,11 +116,12 @@ export default class App extends React.Component {
         </View>
           <ScrollView contentContainerStyle={styles.ItemList}>
             {items.map(
-              ({ item, qty, id, isPurchased }) => (
+              ({ item, qty, id, picture, isPurchased }) => (
                 <EditableFoods
                   key={id}
                   id={id}
                   item={item}
+                  picture={picture}
                   qty={qty.toString()}
                   isPurchased={isPurchased}
                   onFormSubmit={this.handleFormSubmit}
