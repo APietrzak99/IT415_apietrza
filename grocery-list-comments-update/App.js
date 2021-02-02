@@ -9,6 +9,7 @@ import {
   Text,
   AsyncStorage,
   Modal,
+  propTypes
 } from 'react-native';
 
 
@@ -25,11 +26,14 @@ const ASYNC_STORAGE_ITEMS_KEY = 'ASYNC_STORAGE_ITEMS_KEY';
 
 export default class App extends React.Component {
   state = {
-    items: [],
+    items: [
+    ],
     showModal: false,
-    // notes: [],
+    // notes: {},
   };
 
+
+  //before first run, comment this out, then run. add an item, then uncomment it to have async.
   async componentDidMount() {
     try {
       const items = await AsyncStorage.getItem(
@@ -43,7 +47,7 @@ export default class App extends React.Component {
     // );
     // const item = await AsyncStorage.getItem(
     // ASYNC_STORAGE_FOOD_KEY,
-    // );
+    // )
       this.setState({
       items: items
       ? JSON.parse(items)
@@ -57,11 +61,13 @@ export default class App extends React.Component {
     // item: item
     // ? JSON.parse(item)
     // : {},
-      });
+    });
+    
     } catch (e) {
-      console.log('Failed to load foods');
+      console.log('Failed to load foods', e);
 }
 }
+
   openNotesScreen = (id) => {
     this.setState({
     showModal: true,
@@ -135,24 +141,20 @@ export default class App extends React.Component {
 
 
   handleRemovePress = async ItemId => {
+    const { items } = this.state;
     this.setState({
       items: this.state.items.filter(t => t.id !== ItemId),
     });
-    this.removeItemValue.bind(this,ItemId)
-  };
-  removeItemValue = async (selectedItemId) => {
-    try {
-      const items = await AsyncStorage.getItem('ASYNC_STORAGE_ITEMS_KEY');
-      let itemsdel = JSON.parse(items);
-      const newItems = itemsdel.filter(function(e){ return e.selectedItemId !== selectedItemId });
-    
-      await AsyncStorage.setItem('items', JSON.stringify(newItems));
-    
-    } catch(error) {
-      console.log(error);
-    }
-}
-
+    // try {
+    //   await AsyncStorage.removeItem(
+    //   ASYNC_STORAGE_ITEMS_KEY,
+    //   JSON.stringify([newItem(ItemId), ...items]),
+    //   );
+    //   } catch (e) {
+    //   console.log(e);
+    //   }
+  }
+  
   togglePurchase = ItemId => {
     this.setState(prevState => {
       const { items } = prevState;
@@ -178,7 +180,6 @@ export default class App extends React.Component {
   render() {
     const { items, notes, showModal } = this.state;
     return (
-
       <ImageBackground source={require('./assets/grocery.jpg')} style={styles.image}>
       <KeyboardAwareScrollView
         extraScrollHeight={100}

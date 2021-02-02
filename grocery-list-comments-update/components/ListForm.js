@@ -32,6 +32,7 @@ export default class ListForm extends React.Component {
       item: id ? item : '',
       qty: id ? qty : '',
       notes: id ? notes : '',
+      items: [],
     };
   }
 

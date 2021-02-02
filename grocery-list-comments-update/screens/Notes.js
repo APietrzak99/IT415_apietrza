@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import NavigationBar from '../components/NavigationBar';
+import NotesList from '../components/NotesList';
 
 export default function Notes({
   style,
