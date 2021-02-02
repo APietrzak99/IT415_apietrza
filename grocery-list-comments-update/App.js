@@ -9,7 +9,6 @@ import {
   Text,
   AsyncStorage,
   Modal,
-  propTypes
 } from 'react-native';
 
 
@@ -26,47 +25,47 @@ const ASYNC_STORAGE_ITEMS_KEY = 'ASYNC_STORAGE_ITEMS_KEY';
 
 export default class App extends React.Component {
   state = {
-    items: [
-    ],
+    items: [],
     showModal: false,
     // notes: {},
   };
 
-
-  //before first run, comment this out, then run. add an item, then uncomment it to have async.
+  firstRun = true
+  //before first run, comment async componentdidMount() out, then run. add an item, then uncomment it to have async.
   async componentDidMount() {
-    try {
-      const items = await AsyncStorage.getItem(
-        ASYNC_STORAGE_ITEMS_KEY,
-        );
-    // const notes= await AsyncStorage.getItem(
-    // ASYNC_STORAGE_NOTES_KEY,
-    // );
-    // const qty = await AsyncStorage.getItem(
-    // ASYNC_STORAGE_QTY_KEY,
-    // );
-    // const item = await AsyncStorage.getItem(
-    // ASYNC_STORAGE_FOOD_KEY,
-    // )
-      this.setState({
-      items: items
-      ? JSON.parse(items)
-      : {},
-    // notes: notes
-    // ? JSON.parse(notes)
-    // : {},
-    // qty: qty
-    // ? JSON.parse(qty)
-    // : {},
-    // item: item
-    // ? JSON.parse(item)
-    // : {},
-    });
-    
-    } catch (e) {
-      console.log('Failed to load foods', e);
-}
-}
+      try {
+        const items = await AsyncStorage.getItem(
+          ASYNC_STORAGE_ITEMS_KEY,
+          );
+      // const notes= await AsyncStorage.getItem(
+      // ASYNC_STORAGE_NOTES_KEY,
+      // );
+      // const qty = await AsyncStorage.getItem(
+      // ASYNC_STORAGE_QTY_KEY,
+      // );
+      // const item = await AsyncStorage.getItem(
+      // ASYNC_STORAGE_FOOD_KEY,
+      // )
+        this.setState({
+        items: items
+        ? JSON.parse(items)
+        : {},
+      // notes: notes
+      // ? JSON.parse(notes)
+      // : {},
+      // qty: qty
+      // ? JSON.parse(qty)
+      // : {},
+      // item: item
+      // ? JSON.parse(item)
+      // : {},
+      });
+      
+      } catch (e) {
+        console.log('Failed to load foods', e);
+  }
+  }
+
 
   openNotesScreen = (id) => {
     this.setState({
@@ -87,6 +86,7 @@ export default class App extends React.Component {
 
     this.setState({
       items: [newItem(item), ...items],
+      firstRun: false
     });
 
     try {
