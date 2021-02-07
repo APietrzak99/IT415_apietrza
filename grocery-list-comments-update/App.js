@@ -28,15 +28,16 @@ export default class App extends React.Component {
     items: [],
     showModal: false,
     // notes: {},
+
   };
 
-  firstRun = true
   //before first run, comment async componentdidMount() out, then run. add an item, then uncomment it to have async.
   async componentDidMount() {
       try {
         const items = await AsyncStorage.getItem(
           ASYNC_STORAGE_ITEMS_KEY,
           );
+        if (items.length > 0){
       // const notes= await AsyncStorage.getItem(
       // ASYNC_STORAGE_NOTES_KEY,
       // );
@@ -58,9 +59,9 @@ export default class App extends React.Component {
       // : {},
       // item: item
       // ? JSON.parse(item)
-      // : {},
-      });
-      
+      // : {}, 
+      }); 
+    }
       } catch (e) {
         console.log('Failed to load foods', e);
   }
@@ -86,7 +87,6 @@ export default class App extends React.Component {
 
     this.setState({
       items: [newItem(item), ...items],
-      firstRun: false
     });
 
     try {
@@ -146,9 +146,9 @@ export default class App extends React.Component {
       items: this.state.items.filter(t => t.id !== ItemId),
     });
     // try {
-    //   await AsyncStorage.removeItem(
+    //   await AsyncStorage.setItem(
     //   ASYNC_STORAGE_ITEMS_KEY,
-    //   JSON.stringify([newItem(ItemId), ...items]),
+    //   JSON.stringify(items),
     //   );
     //   } catch (e) {
     //   console.log(e);
@@ -202,7 +202,7 @@ export default class App extends React.Component {
                   id={id}
                   item={item}
                   notes={notes}
-                  qty={qty.toString()}
+                  qty={qty}
                   isPurchased={isPurchased}
                   onFormSubmit={this.handleFormSubmit}
                   onRemovePress={this.handleRemovePress}

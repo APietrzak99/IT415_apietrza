@@ -10,6 +10,7 @@ export default class Item extends Component {
     id: PropTypes.string.isRequired,
     item: PropTypes.string.isRequired,
     qty: PropTypes.string.isRequired,
+    picture: PropTypes.number,
     isPurchased: PropTypes.bool.isRequired,
     onEditPress: PropTypes.func.isRequired,
     onRemovePress: PropTypes.func.isRequired,
@@ -60,12 +61,12 @@ export default class Item extends Component {
 // so I could use that as a means of identifying which image to use in each container, but that never ended up panning out.  I've left it as placeholder because I at least can turn
 // in a mostly functional app, minus the pictures. Some of my experiments to get this working led to a severely broken app, so at the very least the app works now.
   render() {
-    const { item, qty, onEditPress } = this.props;
+    const { item, qty, picture, onEditPress } = this.props;
     return (
       <View style={styles.ItemContainer}>
-        <Text>Qty: {qty.toString()}</Text>
+        <Text>Qty: {qty}</Text>
         <Text style={styles.item}>{item}</Text>
-        <Image style = {styles.images} source={products.product_images.placeholder} />
+        <Image style = {styles.images} source={picture} />
         <View style={styles.buttonGroup}>
           <ListButton
             color="blue"

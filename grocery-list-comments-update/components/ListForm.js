@@ -9,7 +9,7 @@ export default class ListForm extends React.Component {
   static propTypes = {
     id: PropTypes.string,
     item: PropTypes.string,
-    qty: PropTypes.string,
+    qty: PropTypes.number,
     notes: PropTypes.string,
     onFormSubmit: PropTypes.func.isRequired,
     onFormClose: PropTypes.func.isRequired,
@@ -94,7 +94,7 @@ export default class ListForm extends React.Component {
               style={styles.textInput}
               underlineColorAndroid="transparent"
               onChangeText={this.handleQtyChange}
-              value={qty.toString()}
+              value={qty}
               width={50}
             />
           </View>
@@ -105,7 +105,7 @@ export default class ListForm extends React.Component {
             <TextInput
               underlineColorAndroid="transparent"
               onChangeText={this.handleNotesChange}
-              value={notes.toString()}
+              value={notes}
               multiline={true}
               numberOfLines={4}
             />

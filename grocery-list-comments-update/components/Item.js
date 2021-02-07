@@ -8,7 +8,7 @@ export default class Item extends Component {
   static propTypes = {
     id: PropTypes.string.isRequired,
     item: PropTypes.string.isRequired,
-    qty: PropTypes.string.isRequired,
+    qty: PropTypes.number.isRequired,
     notes:PropTypes.string,
     isPurchased: PropTypes.bool.isRequired,
     onEditPress: PropTypes.func.isRequired,
@@ -71,7 +71,7 @@ export default class Item extends Component {
     return (
       <View style={styles.ItemContainer}>
         <Text style={styles.item}>{item}</Text>
-        <Text>Qty: {qty.toString()}</Text>
+        <Text>Qty: {qty}</Text>
         <View style={styles.buttonGroup}>
           <ListButton
             color="blue"

@@ -10,6 +10,7 @@ export default class ListForm extends React.Component {
     item: PropTypes.string,
     qty: PropTypes.string,
     picture: PropTypes.string,
+    isPurchased: PropTypes.bool.isRequired, 
     onFormSubmit: PropTypes.func.isRequired,
     onFormClose: PropTypes.func.isRequired,
   };
@@ -58,11 +59,11 @@ export default class ListForm extends React.Component {
   };
 
   render() {
-    const { id, onFormClose } = this.props;
-    const { item, qty } = this.state;
+    const { id, onFormClose, isPurchased } = this.props;
+    const { item, qty} = this.state;
 
     const submitText = id ? 'Update' : 'Create';
-
+    const purchaseText = isPurchased ? 'This Item is Purchased' : 'This Item is not Purchased';
     return (
       <View style={styles.formContainer}>
         <View style={styles.attributeContainer}>
@@ -80,6 +81,7 @@ export default class ListForm extends React.Component {
             />
           </View>
         </View>
+        <Text>{purchaseText}</Text>
         <View style={styles.buttonGroup}>
           <ListButton
             small

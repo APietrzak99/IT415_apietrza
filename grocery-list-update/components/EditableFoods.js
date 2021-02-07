@@ -10,6 +10,7 @@ export default class EditableFoods extends React.Component {
     id: PropTypes.string.isRequired,
     item: PropTypes.string.isRequired,
     qty: PropTypes.string.isRequired,
+    picture: PropTypes.number,
     isPurchased: PropTypes.bool.isRequired,
     onFormSubmit: PropTypes.func.isRequired,
     onRemovePress: PropTypes.func.isRequired,
@@ -49,6 +50,7 @@ export default class EditableFoods extends React.Component {
       id,
       item,
       qty,
+      picture,
       isPurchased,
       onRemovePress,
       onStartPress,
@@ -61,7 +63,9 @@ export default class EditableFoods extends React.Component {
         <ListForm
           id={id}
           item={item}
-          qty={qty.toString()}
+          qty={qty}
+          picture={picture}
+          isPurchased={isPurchased}
           onFormSubmit={this.handleSubmit}
           onFormClose={this.handleFormClose}
         />
@@ -72,7 +76,8 @@ export default class EditableFoods extends React.Component {
       <Item
         id={id}
         item={item}
-        qty={qty.toString()}
+        qty={qty}
+        picture={picture}
         isPurchased={isPurchased}
         onEditPress={this.handleEditPress}
         onRemovePress={onRemovePress}
