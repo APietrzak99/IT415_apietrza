@@ -10,7 +10,7 @@ import {
   Text, 
   TextInput
 } from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 
 import {
   createImageMessage,
@@ -43,7 +43,8 @@ export default class App extends React.Component {
     fullscreenImageId: null,
     isInputFocused: false,
     inputMethod: INPUT_METHOD.NONE,
-    isModalVisible: false
+    isModalVisible: false,
+    textInputValue: 'https://google.com'
   };
 
   
@@ -118,6 +119,15 @@ export default class App extends React.Component {
     });
   };
 
+  handleSubmitModal = url => {
+    const { messages } = this.state;
+
+    this.setState({
+      isModalVisible:false, 
+      messages: [createLinkMessage(url), ...messages],
+      })
+  };
+
   handleChangeFocus = isFocused => {
     this.setState({ isInputFocused: isFocused });
   };
@@ -127,6 +137,43 @@ export default class App extends React.Component {
   };
 
   handlePressMessage = ({ id, type }) => {
+    switch (type) {
+      case 'text':
+        Alert.alert(
+          'Delete message?',
+          'Are you sure you want to permanently delete this message?',
+          [
+            {
+              text: 'Cancel',
+              style: 'cancel',
+            },
+            {
+              text: 'Delete',
+              style: 'destructive',
+              onPress: () => {
+                const { messages } = this.state;
+                this.setState({
+                  messages: messages.filter(
+                    message => message.id !== id,
+                  ),
+                });
+              },
+            },
+          ],
+        );
+        break;
+        case 'image':
+          this.setState({
+            fullscreenImageId: id,
+            isInputFocused: false,
+          });
+          break;
+      default:
+        break;
+    }
+  };
+
+  handleLongPressMessage = ({ id, type }) => {
     switch (type) {
       case 'text':
         Alert.alert(
@@ -237,6 +284,7 @@ export default class App extends React.Component {
         <MessageList
           messages={messages}
           onPressMessage={this.handlePressMessage}
+          onLongPressMessage={this.handleLongPressMessage}
         />
       </View>
     );
@@ -290,7 +338,6 @@ export default class App extends React.Component {
 
   render() {
     const { inputMethod, isModalVisible} = this.state;
-
     return (
       <View style={styles.container}>
         <Modal
@@ -305,9 +352,7 @@ export default class App extends React.Component {
           <View style={styles.centeredView}>
             <View style={styles.modalView}>
               <Text style={styles.modalText}>Enter URL: </Text>
-              <TextInput placeholder="Enter a URL to send..." 
-                                  style={styles.textInput}  
-                                    /> 
+              <TextInput style={styles.textInput} value={this.state.textInputValue} onChangeText={value => this.setState({textInputValue: value})} /> 
               <View style={styles.modalButtons}>
               <Pressable
                 style={[styles.button, styles.buttonClose]}
@@ -317,7 +362,8 @@ export default class App extends React.Component {
               </Pressable>
               <Pressable
                 style={[styles.button, styles.buttonClose]}
-                onPress={() => this.setState({isModalVisible:false})}
+                onPress={() => this.handleSubmitModal(this.state.textInputValue)}
+                
               >
                 <Text style={styles.textStyle}>Submit</Text>
               </Pressable>

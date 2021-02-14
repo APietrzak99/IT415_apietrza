@@ -9,6 +9,7 @@ import {
 import MapView from 'react-native-maps';
 import PropTypes from 'prop-types';
 import React from 'react';
+import Autolink from 'react-native-autolink';
 
 import { MessageShape } from '../utils/MessageUtils';
 
@@ -18,10 +19,12 @@ export default class MessageList extends React.Component {
   static propTypes = {
     messages: PropTypes.arrayOf(MessageShape).isRequired,
     onPressMessage: PropTypes.func,
+    onLongPressMessage: PropTypes.func,
   };
 
   static defaultProps = {
     onPressMessage: () => {},
+    onLongPressMessage: () => {},
   };
 
   renderMessageBody = ({ type, text, uri, coordinate, url }) => {
@@ -50,7 +53,7 @@ export default class MessageList extends React.Component {
         case 'link':
         return (
           <View style={styles.messageBubble}>
-            <Text style={styles.link}>{url}</Text>
+            <Autolink linkStyle= {styles.link} text={url}/>
           </View>
         );
       default:
@@ -59,11 +62,11 @@ export default class MessageList extends React.Component {
   };
 
   renderMessageItem = ({ item }) => {
-    const { onPressMessage } = this.props;
+    const { onPressMessage, onLongPressMessage } = this.props;
 
     return (
       <View key={item.id} style={styles.messageRow}>
-        <TouchableOpacity onPress={() => onPressMessage(item)}>
+        <TouchableOpacity onPress={() => onPressMessage(item)} onLongPress={() => onLongPressMessage(item)}>
           {this.renderMessageBody(item)}
         </TouchableOpacity>
       </View>
@@ -111,7 +114,7 @@ const styles = StyleSheet.create({
   link: {
     fontSize: 18,
     color: 'white',
-    textDecorationLine: 'underline',
+    textDecorationLine: 'underline'
   },
   image: {
     width: 150,
