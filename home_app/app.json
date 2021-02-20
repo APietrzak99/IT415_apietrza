@@ -10,10 +10,6 @@
       "android",
       "ios"
     ],
-    "splash": {
-      "image":"./assets/splash_grocery.png",
-      "resizeMode":"cover"
-    },
     "updates": {
       "fallbackToCacheTimeout": 0
     },
