@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Grocery List",
-    "slug": "grocery-list",
+    "name": "Home App",
+    "slug": "home_app",
     "sdkVersion": "39.0.0",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -16,6 +16,10 @@
     "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
+    },
+    "splash": {
+      "image":"./assets/spy_defense.png",
+      "resizeMode":"cover"
     },
     "web": {
       "favicon": "./assets/favicon.png"
