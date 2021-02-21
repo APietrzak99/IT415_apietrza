@@ -18,7 +18,7 @@
       "supportsTablet": true
     },
     "splash": {
-      "image":"./assets/spy_defense.png",
+      "image":"./assets/spy_defense.jpg",
       "resizeMode":"cover"
     },
     "web": {

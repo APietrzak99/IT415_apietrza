@@ -1,16 +1,11 @@
-import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import MyTabs from './route'
 
-export default class HelloWorldApp extends Component {
-  render() {
-    return (
-      <View style={{
-          flex: 1,
-          justifyContent: "center",
-          alignItems: "center"
-        }}>
-        <Text>Hello, world!</Text>
-      </View>
-    );
-  }
+export default function App() {
+  return (
+    <NavigationContainer>
+      <MyTabs />
+    </NavigationContainer>
+  );
 }
