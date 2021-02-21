@@ -15,7 +15,7 @@ function Favorites({navigation}) {
   );
 }
 
-function Notifications({navigation}) {
+function AllSongs({navigation}) {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', padding:40 }}>
       <Text>This is where the user's full library would be displayed for selection. </Text>
@@ -25,7 +25,7 @@ function Notifications({navigation}) {
   );
 }
 
- export function Music_Screen() {
+ export function Music() {
   return (
     <Tab.Navigator
       initialRouteName="Music Favorites"
@@ -44,14 +44,13 @@ function Notifications({navigation}) {
         }}
       />
       <Tab.Screen
-        name="Notifications"
-        component={Notifications}
+        name="AllSongs"
+        component={AllSongs}
         options={{
           tabBarLabel: 'All Music',
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="music" color={color} size={size} />
           ),
-          tabBarBadge: 3,
         }}
       />
     </Tab.Navigator>

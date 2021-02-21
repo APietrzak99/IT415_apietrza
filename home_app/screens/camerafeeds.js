@@ -8,15 +8,33 @@ import { Text, View, StyleSheet, Button } from 'react-native';
         <Text style={styles.text}>This includes the basic system health and menus to get to other parts of the app.</Text>
       <Button
       style={{padding:10}}
-        title="Access Camera Feeds "
+      color="black"
+        title="Access Cameras  📹"
         onPress={() => navigation.navigate('Feeds')}
       />
       <Text></Text>
       <Text></Text>
       <Button
         style={{padding:10}}
-        title="Access Music Player "
-        onPress={() => navigation.navigate('Music_Screen')}
+        color="black"
+        title="Access Music Player 🎶"
+        onPress={() => navigation.navigate('Music')}
+      />
+      <Text></Text>
+      <Text></Text>
+      <Button
+        style={{padding:10}}
+        color="black"
+        title="View Alarms 🔒"
+        onPress={() => navigation.navigate('Alarms')}
+      />
+      <Text></Text>
+      <Text></Text>
+      <Button
+        style={{padding:10}}
+        color="black"
+        title="View Camera Settings ⚙️"
+        onPress={() => navigation.navigate('Settings')}
       />
       </View>
     );
@@ -26,6 +44,7 @@ import { Text, View, StyleSheet, Button } from 'react-native';
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <Text>This is where the user would access their camera feeds. </Text>
+        <Text style={styles.text}>The feeds would be presented in a grid style menu where you could scroll down. </Text>
         <Text style={styles.text}>Accessing this screen means a stacked interface has been utilized. </Text>
       <Button title="Go Back" onPress={() => navigation.goBack()} />
       </View>

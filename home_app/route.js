@@ -1,11 +1,9 @@
 import * as React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createStackNavigator } from '@react-navigation/stack';
 import {Home, Feeds} from './screens/camerafeeds';
-import {Music_Screen} from './screens/music';
+import {Music} from './screens/music';
+import {Alarms} from './screens/alarmscreen';
+import { Settings, Editing } from './screens/feedsettings';
 
 
 const Stack = createStackNavigator();
@@ -15,7 +13,10 @@ export default function MyTabs() {
     <Stack.Navigator>
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Feeds" component={Feeds} />
-        <Stack.Screen name="Music_Screen" component={Music_Screen} />
+        <Stack.Screen name="Music" component={Music} />
+        <Stack.Screen name="Alarms" component={Alarms} />
+        <Stack.Screen name="Settings" component={Settings} />
+        <Stack.Screen name="Editing" component={Editing} />
       </Stack.Navigator>
     );
   }
