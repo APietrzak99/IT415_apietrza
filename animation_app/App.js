@@ -11,7 +11,7 @@ export default class AnimationApp extends Component {
     Animated.timing(this.state.fadeAnim, {
       toValue: 1,
       duration: 3000,
-      useNativeDriver: false<Button title="Wiggle" onPress={this.fadeOut} />
+      useNativeDriver: false
     }).start();
   };
 

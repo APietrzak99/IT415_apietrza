@@ -1,0 +1,29 @@
+{
+  "expo": {
+    "name": "Animation App",
+    "slug": "animation-app",
+    "sdkVersion": "39.0.0",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "platforms": [
+      "android",
+      "ios"
+    ],
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "splash": {
+      "image":".\\assets\\pow.png",
+      "resizeMode":"contain",
+      "backgroundColor": "#000000"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
+}
