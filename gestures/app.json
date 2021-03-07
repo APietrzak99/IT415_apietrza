@@ -1,0 +1,28 @@
+{
+  "expo": {
+    "name": "Puzzle",
+    "slug": "puzzle-app",
+    "sdkVersion": "39.0.0",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "platforms": [
+      "android",
+      "ios"
+    ],
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "splash": {
+      "image":"./assets/react.png",
+      "resizeMode":"cover"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
+}
